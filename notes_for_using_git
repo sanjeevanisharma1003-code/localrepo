@@ -1,0 +1,105 @@
+all this commands are for terminal
+CLONE->
+it is a command used in terminal as git clone ____link____ for copying that entire repo from 
+our github to the particular folder
+cd->
+used to change directory 
+clear->
+used to clear the terminal
+ls->
+means list files ,used to view all files in that folder
+ls -a ->
+shows all files including hidden files
+if it is a git file this will show git else not
+*ls -a (for gitbash)
+*ls -Force(for powershell)
+
+status ->
+using git status in terminal shows whether the folder is in its original state as in github
+types of status->
+untracked:-new files that git doesnt track
+modified:-changed
+staged:-file ready to be committed (file added)
+unmodified:-unchanged(file committed)
+
+here when we added index.html it was untracked 
+add->
+add new or changed file in the git staging area
+so,when we did git add index.html in terminal file becomes staged
+git add . adds all files to git staging area
+
+commit->
+it is the record of change
+git commit -m"some message"
+
+push->
+now any changes done locally(local repo) in our system wont be visible in github(remote repo)
+therefore we use push command,
+which upload local repo to remote repo
+git push origin main (here origin is the name of the remote repo through which we copied our code)
+
+* cd .. is used to get out of that directory
+* mkdir <-directory name-> used to make directory
+init->
+used to create a new git repo or to add the repo in git 
+before doing init to any file go inside and check with ls -a/ls -Force if it has git
+if not than use init
+git init 
+
+*create new repo in github
+
+git remote add origin <-link->
+adds that repo as the origin or simply connects the new repo made in github with our local repo
+
+git remote -v
+to verify remote
+
+git branch 
+to check branch
+
+git branch -M main (to rename branch as main)
+
+git push origin main (to push code in github) or
+git push -u origin main (so every change in future is always pushed in origin main)
+
+
+GIT WORKFLOW for local git
+github repo -> clone -> changes -> add -> commit -> push
+
+
+GIT BRANCHES->
+BRANCH COMMANDS:-
+git branch (gives branch we are working on)
+git branch -M main (renames branch)
+git checkout -b <-new branch name-> (to create new branch)
+git checkout <-branch name-> (navigate to another branch)
+git branch -d <-branch name-> (to delete branch)
+
+whenever we move to any branch other than main and do any changes there,add and commit them
+and then move to main branch then changes only reflect in other branch(feature1)not in main branch
+and then we will -> git push origin feature1
+
+
+MERGING CODE
+WAY 1
+for say we are on  feature 1 branch and we want to merge it with main branch
+then first we will see the difference between them through command
+git diff main
+then to merge them both use command
+git merge main
+
+WAY 2
+through pull request(pr)
+in github we will select feature 1 branch and contribute and merge pull request
+this will check both codes and merge them both
+but they will be merged only in remote repo not in local repo so we will run in terminal
+git pull origin main
+
+RESOLVING MERGE CONFLICTS
+for say, the main branch has 
+<p>this is a feature(button)</p>
+the feature branch has 
+<p>this is a feature(dropdown)</p>
+merging them will raise conflict which one to chose
+so here we will merge through the way 1
+using git merge main
